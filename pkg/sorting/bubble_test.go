@@ -6,22 +6,22 @@ import (
 	"testing"
 )
 
-func TestInsertion(t *testing.T) {
+func TestBubble(t *testing.T) {
 	tests := [][]int{
 		{5, 4, 3, 2, 1},
 		{1, 2, 5, 4, 3},
 		{-1, -2, 5, 4, 3},
 	}
 	for _, test := range tests {
-		t.Run(fmt.Sprint(test), testIntInsertion(test))
+		t.Run(fmt.Sprint(test), testIntBubble(test))
 	}
 }
 
-func testIntInsertion(d []int) func(*testing.T) {
+func testIntBubble(d []int) func(*testing.T) {
 	return func(t *testing.T) {
-		InsertionSort(d)
+		BubbleSort(d)
 		if !sort.IsSorted(sort.IntSlice(d)) {
-			t.Errorf("InsertionSort failed - %v", d)
+			t.Errorf("BubbleSort failed - %v", d)
 		}
 	}
 }
