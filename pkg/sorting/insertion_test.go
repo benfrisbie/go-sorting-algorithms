@@ -1,27 +1,37 @@
 package sorting
 
 import (
-	"fmt"
 	"sort"
 	"testing"
 )
 
-func TestInsertion(t *testing.T) {
-	tests := [][]int{
-		{5, 4, 3, 2, 1},
-		{1, 2, 5, 4, 3},
-		{-1, -2, 5, 4, 3},
-	}
-	for _, test := range tests {
-		t.Run(fmt.Sprint(test), testIntInsertion(test))
+func TestInsertionInt(t *testing.T) {
+	s := RandomIntSlice(SliceLength)
+	InsertionSort(s)
+	if !sort.IsSorted(sort.IntSlice(s)) {
+		t.Errorf("InsertionSort failed - %v", s)
 	}
 }
 
-func testIntInsertion(d []int) func(*testing.T) {
-	return func(t *testing.T) {
-		InsertionSort(d)
-		if !sort.IsSorted(sort.IntSlice(d)) {
-			t.Errorf("InsertionSort failed - %v", d)
-		}
+func TestInsertionFloat64(t *testing.T) {
+	s := RandomFloat64Slice(SliceLength)
+	InsertionSort(s)
+	if !sort.IsSorted(sort.Float64Slice(s)) {
+		t.Errorf("InsertionSort failed - %v", s)
+	}
+}
+
+func TestInsertionString(t *testing.T) {
+	s := RandomStringSlice(SliceLength)
+	InsertionSort(s)
+	if !sort.IsSorted(sort.StringSlice(s)) {
+		t.Errorf("InsertionSort failed - %v", s)
+	}
+}
+
+func BenchmarkInsertion(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		s := RandomIntSlice(SliceLength)
+		InsertionSort(s)
 	}
 }
