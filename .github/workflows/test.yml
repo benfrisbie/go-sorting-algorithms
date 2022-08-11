@@ -28,8 +28,11 @@ jobs:
         uses: benchmark-action/github-action-benchmark@v1
         with:
           tool: 'go'
+          gh-pages-branch: main
+          benchmark-data-dir-path: docs/benchmark
           output-file-path: benchmark.txt
           fail-on-alert: true
           github-token: ${{ github.token }}
+          comment-always: true
           comment-on-alert: true
           alert-comment-cc-users: '@benfrisbie'
