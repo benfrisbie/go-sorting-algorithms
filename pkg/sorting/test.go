@@ -1,10 +1,12 @@
+// Package sorting provides sorting algorithms that operate on generic slices.
 package sorting
 
 import (
+	"flag"
 	"math/rand"
 )
 
-var SliceLength = 1000
+var SliceLength = flag.Int("slice_length", 1000, "length of slices to test sorting on")
 
 func RandomIntSlice(n int) []int {
 	s := make([]int, n)
