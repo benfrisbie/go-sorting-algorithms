@@ -28,7 +28,7 @@ jobs:
         uses: benchmark-action/github-action-benchmark@v1
         with:
           tool: 'go'
-          output-file-path: output.txt
+          output-file-path: benchmark.txt
           fail-on-alert: true
           github-token: ${{ github.token }}
           comment-on-alert: true
