@@ -22,17 +22,3 @@ jobs:
         run: go test -race -coverprofile=coverage.out -covermode=atomic ./...
       - name: Upload coverage
         uses: codecov/codecov-action@v3
-      - name: Run benchmark
-        run: go test -bench=. ./... | tee benchmark.txt
-      - name: Store benchmark result
-        uses: benchmark-action/github-action-benchmark@v1
-        with:
-          tool: 'go'
-          gh-pages-branch: main
-          benchmark-data-dir-path: docs/benchmark
-          output-file-path: benchmark.txt
-          fail-on-alert: true
-          github-token: ${{ github.token }}
-          comment-always: true
-          comment-on-alert: true
-          alert-comment-cc-users: '@benfrisbie'
