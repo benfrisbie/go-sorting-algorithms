@@ -4,6 +4,7 @@ import (
 	"golang.org/x/exp/constraints"
 )
 
+// SelectionSort performs an in-place selection sort on the slice d
 func SelectionSort[T constraints.Ordered](d []T) {
 	for i := 0; i < len(d); i++ {
 		minIndex := i
