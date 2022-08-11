@@ -1,11 +1,19 @@
 package sorting
 
 import (
+	"fmt"
 	"sort"
 	"testing"
 )
 
-func TestBubbleInt(t *testing.T) {
+func ExampleBubbleSort() {
+	s := []int{5, 4, 3, 2, 1}
+	BubbleSort(s)
+	fmt.Println(s)
+	// Output: [1 2 3 4 5]
+}
+
+func TestBubbleSortInt(t *testing.T) {
 	s := RandomIntSlice(SliceLength)
 	BubbleSort(s)
 	if !sort.IsSorted(sort.IntSlice(s)) {
@@ -13,7 +21,7 @@ func TestBubbleInt(t *testing.T) {
 	}
 }
 
-func TestBubbleFloat64(t *testing.T) {
+func TestBubbleSortFloat64(t *testing.T) {
 	s := RandomFloat64Slice(SliceLength)
 	BubbleSort(s)
 	if !sort.IsSorted(sort.Float64Slice(s)) {
@@ -21,7 +29,7 @@ func TestBubbleFloat64(t *testing.T) {
 	}
 }
 
-func TestBubbleString(t *testing.T) {
+func TestBubbleSortString(t *testing.T) {
 	s := RandomStringSlice(SliceLength)
 	BubbleSort(s)
 	if !sort.IsSorted(sort.StringSlice(s)) {

@@ -1,11 +1,19 @@
 package sorting
 
 import (
+	"fmt"
 	"sort"
 	"testing"
 )
 
-func TestSelectionInt(t *testing.T) {
+func ExampleSelectionSort() {
+	s := []int{5, 4, 3, 2, 1}
+	SelectionSort(s)
+	fmt.Println(s)
+	// Output: [1 2 3 4 5]
+}
+
+func TestSelectionSortInt(t *testing.T) {
 	s := RandomIntSlice(SliceLength)
 	SelectionSort(s)
 	if !sort.IsSorted(sort.IntSlice(s)) {
@@ -13,7 +21,7 @@ func TestSelectionInt(t *testing.T) {
 	}
 }
 
-func TestSelectionFloat64(t *testing.T) {
+func TestSelectionSortFloat64(t *testing.T) {
 	s := RandomFloat64Slice(SliceLength)
 	SelectionSort(s)
 	if !sort.IsSorted(sort.Float64Slice(s)) {
@@ -21,7 +29,7 @@ func TestSelectionFloat64(t *testing.T) {
 	}
 }
 
-func TestSelectionString(t *testing.T) {
+func TestSelectionSortString(t *testing.T) {
 	s := RandomStringSlice(SliceLength)
 	SelectionSort(s)
 	if !sort.IsSorted(sort.StringSlice(s)) {
