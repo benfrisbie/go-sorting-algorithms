@@ -14,3 +14,7 @@ Run benchmarks:
 ```bash
 go test -bench=. ./...
 ```
+Specify slice length
+```bash
+go test -bench=. -slice_length=10000 ./...
+```
